@@ -1,0 +1,38 @@
+/****************Progress Bar ******************/
+
+.progress-bar {
+    padding-top: 6%;
+    padding-bottom: 2%;
+}
+
+.progress-bar #progress_container {
+    width: 60%;
+    height: 30px;
+    margin:auto;
+    border-radius: 40px;
+    margin-bottom: 0;
+    background-color: #fff;
+}
+
+.progress-bar #expenses_bar {
+    width: 10%;
+    height: 100%;
+    border-top-left-radius: 40px;
+    border-bottom-left-radius: 40px;
+    background-color: red;
+    display:inline-block;
+}
+.progress-bar #give_bar {
+    width: 30%;
+    height: 100%;
+    background-color: orange;
+    display:inline-block;
+}
+.progress-bar #income_bar {
+    width: 60%;
+    height: 100%;
+    background-color: green;
+    border-top-left-radius: 40px;
+    border-bottom-left-radius: 40px;
+    display:inline-block;
+}

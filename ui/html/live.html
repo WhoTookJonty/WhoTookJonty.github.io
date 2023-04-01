@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CFL APP</title>
+    <link rel="stylesheet" href="../css/live.css" />
+    <link rel="stylesheet" href="../css/shared_css/navbar.css" />
+    <link rel="stylesheet" href="../css/shared_css/inputform.css"/>
+    <link rel="stylesheet" href="../css/shared_css/footer.css" />
+    <link rel="stylesheet" href="../css/shared_css/table.css" />
+    <link rel="stylesheet" href="../css/shared_css/herobutton.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+    <script src="../js/live.js" defer></script>
+  </head>
+
+  <body>
+    <!--Section for the Nav Bar on the right-->
+    <section class="header">
+      <nav>
+        <a href="summary.html"><img src="" /></a>
+        <div class="nav-links" id="navLinks">
+          <i class="fa-solid fa-square-xmark" ></i>
+          <ul>
+            <li><a href="summary.html" id="homeNav">SUMMARY</a></li>
+            <li><a href="live.html" id="liveNav">LIVE</a></li>
+            <li><a href="give.html" id="giveNav">GIVE</a></li>
+            <li><a href="grow.html" id="growNav">GROW</a></li>
+            <li><a href="owe.html" id="oweNav">OWE</a></li>
+            <li><a href="about.html" id="homeNav">ABOUT</a></li>
+          </ul>
+        </div>
+        <i class="fa-solid fa-bars"></i>
+      </nav>
+      <!--First page-->
+      <div class="text-box">
+        <h1>Live</h1>
+        <hr />
+        <p>What is Your Cost of Living?</p>
+       <!---- <button class="hero-btn" id="livepagebtn" onclick="openTheForm();">
+          CLICK TO ENTER YOUR EXPENSES
+        </button>-->
+        <a href="#form-header" class="hero-btn" id="libertyBtn"
+          >Click here to enter your expenses</a>
+      </div>
+    </section>
+
+    <section>
+      <h1 id="form-header" class="form-header">Enter your Expenses</h1>
+      <div class="container" id='container'>
+        <form action="#" method="POST">
+          <div class="user-details">
+            <div class="input-box">
+              <span class="details">Category</span>
+              <select class="input-box" name="Category" id="CategoryInput" required>
+                <option disabled value selected>Select the category</option>
+                <option value="Food">Food</option>
+                <option value="Housing">Housing</option>
+                <option value="Insurance">Insurance</option>
+                <option value="Transportation">Transportation</option>
+                <option value="Entertainment">Entertainment</option>
+                <option value="Personal">Personal Spending</option>
+                <option value="Miscellaneous">Miscellaneous</option>
+              </select>
+            </div>
+      
+            <div class="input-box">
+              <span class="details">Description</span>
+              <input
+              type="text"
+              id="PurchaseInput"
+              class="purchaseInput"
+              placeholder="Enter the description"
+              name="Purchase"
+              required/>
+            </div>
+      
+            <div class="input-box" id="dateBox">
+              <span class="details">Date</span>
+              <input
+              type="date"
+              id="DateInput"
+              class="dateInput"
+              placeholder="11/14/2022"
+              name="Date"
+              required/>
+            </div>
+      
+            <div class="input-box">
+              <span class="details">Amount</span>
+              <input
+              type="text"
+              id="AmountInput"
+              class="amountInput"
+              value=""
+              data-type="currency"
+              placeholder="Enter the amount"
+              name="Amount"
+              data-type="currency"
+              required>
+            </div>
+            <!-- require pattern = "^\$\d{1,3}(,\d{3})*(\.\d+)?$" -->
+          </div>
+          <div class="button">
+            <input type="submit" value="Submit" id="button">
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section class="grid">
+        <table id="tbl" class="table">
+          <thead>
+            <tr>
+              <th>Category</th>
+              <th>Description</th>
+              <th>Date</th>
+              <th>Amount</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+    </section>
+
+    <section class="summary-link">
+      <a href="summary.html" class="hero-btn gold-btn" id="LibertyBtn">
+        Back to Summary
+      </a>
+    </section>
+
+    <!--Start of first section-->
+
+
+    <!--Start of last section-->
+    <section class="footer">
+      <h4>About the Team</h4>
+      <p>
+        In 2023 the CFL team built the web app to facilitate business students
+        with their finances. The team is comprised of <br />
+        five members: Andrés Choque, Jonathan Wilson, Bailey Warren, Noha
+        Ngassaki, and Michael Donoho.
+      </p>
+      <div class="icons">
+        <i class="fa-brands fa-facebook" onclick="showFBpage()"></i>
+        <i class="fa-brands fa-twitter" onclick="showTWpage()"></i>
+        <i class="fa-brands fa-instagram" onclick="showIGpage()"></i>
+        <i class="fa-brands fa-linkedin" onclick="showLIpage()"></i>
+      </div>
+      <p>Made with <i class="fa-solid fa-heart"></i> by CFL Team</p>
+    </section>
+    <!--End of last section-->
+  </body>
+</html>

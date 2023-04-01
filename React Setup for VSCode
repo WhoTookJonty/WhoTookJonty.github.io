@@ -1,0 +1,2 @@
+1. First install Node.js to your system (this includes the npm package manager) --> https://nodejs.org/en/download/
+2. Follow this guide to set up the React server and app: https://code.visualstudio.com/docs/nodejs/reactjs-tutorial 

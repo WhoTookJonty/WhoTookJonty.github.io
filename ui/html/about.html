@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CFL APP</title>
+    <link rel="stylesheet" href="../css/about.css" />
+    <link rel="stylesheet" href="../css/shared_css/navbar.css" />
+    <link rel="stylesheet" href="../css/shared_css/footer.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="../css/shared_css/herobutton.css">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+    <script src="../js/about.js" defer></script>
+  </head>
+
+  <body>
+    <!--Start of Section for the main cover page -->
+    <section class="header">
+      <nav>
+        <a href="summary.html"><img src="" /></a>
+        <div class="nav-links" id="navLinks">
+          <i class="fa-solid fa-square-xmark" onclick="hideMenu()"></i>
+          <ul>
+            <li><a href="summary.html" id="homeNav">SUMMARY</a></li>
+            <li><a href="live.html" id="liveNav">LIVE</a></li>
+            <li><a href="give.html" id="giveNav">GIVE</a></li>
+            <li><a href="grow.html" id="growNav">GROW</a></li>
+            <li><a href="owe.html" id="oweNav">OWE</a></li>
+            <li><a href="about.html" id="homeNav">ABOUT</a></li>
+          </ul>
+        </div>
+        <i class="fa-solid fa-bars" onclick="showMenu()"></i>
+      </nav>
+
+      <div class="text-box">
+        <h1>Center for Financial Literacy</h1>
+        <p>Providing biblical financial wisdom with practical applications</p>
+        <a class="hero-btn" id="libertyBtn" onclick="showCFLpage()"
+          >Visit our website</a
+        >
+      </div>
+    </section>
+    <!--End of section for the main cover page -->
+
+    <!--Start of section 2-->
+    <section class="reviews">
+      <h1>Testimonials</h1>
+      <p>This is what some of the student financial planners have to say.</p>
+      <div class="row">
+        <div class="reviews-col">
+          <img src="../images/student1.png" />
+          <div>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit sed
+              est magni totam molestias voluptatem voluptate nemo ipsa quod a
+              accusamus aspernatur doloremque, dolorem ullam! Quasi esse nihil
+              eos laudantium.
+            </p>
+            <h3>John Smith</h3>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+          </div>
+        </div>
+
+        <div class="reviews-col">
+          <img src="../images/student2.png" />
+          <div>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit sed
+              est magni totam molestias voluptatem voluptate nemo ipsa quod a
+              accusamus aspernatur doloremque, dolorem ullam! Quasi esse nihil
+              eos laudantium.
+            </p>
+            <h3>David Blaine</h3>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star-half-stroke"></i>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--End of section 2-->
+
+    <!--Start of section 3-->
+    <section class="contact-us">
+      <h1>Contact CFL</h1>
+      <div class="row">
+        <div class="contact-col">
+          <div>
+            <i class="fa-solid fa-house"></i>
+            <span>
+              <h5>1971 University Blvd</h5>
+              <p>Lynchburg, VA</p>
+            </span>
+          </div>
+
+          <div>
+            <i class="fa-solid fa-phone"></i>
+            <span>
+              <h5>434-592-3210</h5>
+              <p>
+                Monday - Friday <br />
+                8 am - 5 pm
+              </p>
+            </span>
+          </div>
+
+          <div>
+            <i class="fa-solid fa-envelope"></i>
+            <span>
+              <h5>cfl@liberty.edu</h5>
+              <p>Email us!</p>
+            </span>
+          </div>
+        </div>
+        <div class="contact-col">
+          <form action="../UI/backend/form-handler.php" method="post">
+            <input
+              type="text"
+              name="name"
+              placeholder="Enter your Name"
+              required
+            />
+            <input
+              type="text"
+              name="email"
+              placeholder="Enter your Email Address"
+              required
+            />
+            <input
+              type="text"
+              name="subject"
+              placeholder="Enter your Subject"
+              required
+            />
+            <textarea
+              name="8"
+              name="message"
+              placeholder="Message"
+              required
+            ></textarea>
+            <button type="submit" class="hero-btn gold-btn" id="LibertyBtn">
+              Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+    <!--End of section 3-->
+
+    <!--Start of last section-->
+    <section class="footer">
+      <h4>About the Team</h4>
+      <p>
+        In 2023 the CFL team built the web app to facilitate business students
+        with their finances. The team is comprised of <br />
+        five members: Andrés Choque, Jonathan Wilson, Bailey Warren, Noha
+        Ngassaki, and William Donoho.
+      </p>
+      <div class="icons">
+        <i class="fa-brands fa-facebook" onclick="showFBpage()"></i>
+        <i class="fa-brands fa-twitter" onclick="showTWpage()"></i>
+        <i class="fa-brands fa-instagram" onclick="showIGpage()"></i>
+        <i class="fa-brands fa-linkedin" onclick="showLIpage()"></i>
+      </div>
+      <p>Made with <i class="fa-solid fa-heart"></i> by CFL Team</p>
+    </section>
+    <!--End of last section-->
+  </body>
+</html>

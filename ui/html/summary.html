@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@0.7.0"></script>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CFL APP</title>
+    <link rel="stylesheet" href="../css/summary.css">
+    <link rel="stylesheet" href="../css/shared_css/table.css">
+    <link rel="stylesheet" href="../css/shared_css/footer.css">
+    <link rel="stylesheet" href="../css/shared_css/navbar.css" />
+
+    <!--Google APIs for fonts: go to fonts.google.com & copy API links-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+
+    <script src="../js/summary.js" defer></script>
+  </head>
+  <body>
+    <!--Section for the Nav Bar on the right-->
+    <section class="header">
+      <nav>
+        <a href="summary.html"><img src="" /></a>
+        <div class="nav-links">
+          <ul>
+            <li><a href="../html/summary.html" id="homeNav">SUMMARY</a></li>
+            <li><a href="../html/live.html" id="liveNav">LIVE</a></li>
+            <li><a href="../html/give.html" id="giveNav">GIVE</a></li>
+            <li><a href="../html/grow.html" id="growNav">GROW</a></li>
+            <li><a href="../html/owe.html" id="oweNav">OWE</a></li>
+            <li><a href="../html/about.html" id="homeNav">ABOUT</a></li>
+          </ul>
+        </div>
+      </nav>
+
+
+        <div id="summary_head">
+          <h1>Income Summary</h1>
+        </div>
+
+        <section class="progress-section" id="progress_bar">
+           
+          <div class="progress-container">
+            <div class="circular-progress">
+              <span class="progress-value" id="progress_value">$0</span>
+            </div>
+            <span class="income-text">Income Margin</span>
+            <input type="text" id="income_input" placeholder="Enter monthly income">
+            <div id="after_tax">
+              <h1 id="after_tax_h1">Income After Tax: <span id="after_tax_num"></span> </h1>
+            </div>
+            <div id="total_expenses">
+              <h1 id="total_expenses_h1">Total Expenses: <span id="total_expenses_num"></span></h1>
+            </div>
+          </div>
+        </section>
+
+        
+        <section class="finance-bar">
+          <div id="live_bar" class="shiny finance-num">
+            <h1>Live</h1>
+            <h2></h2>
+          </div>
+        </section>
+
+        <section class="finance-bar">
+          <div id="give_bar" class="shiny finance-num">
+              <h1>Give</h1>
+              <h2></h2>
+          </div>
+      </section>
+
+      <section class="finance-bar">
+        <div id="grow_bar" class="shiny finance-num">
+          <h1>Grow</h1>
+          <h2></h2>
+        </div>
+      </section>
+
+
+
+      <section class="finance-bar">
+        <div id="owe_bar" class="shiny finance-num">
+          <h1>Owe</h1>
+          <h2></h2>
+        </div>
+      </section>
+
+
+    </section>
+
+
+    <section class="filters">
+      <details id="details">
+        <summary>Filter by Date</summary>
+
+        <h2>Months</h2>
+        <div class="months">
+          <button class="button1">Jan</button>
+          <button class="button1">Feb</button>
+          <button class="button1">Mar</button>
+          <button class="button1">Apr</button>
+          <button class="button1">May</button>
+          <button class="button1">Jun</button>
+          <button class="button1">Jul</button>
+          <button class="button1">Aug</button>
+          <button class="button1">Sep</button>
+          <button class="button1">Oct</button>
+          <button class="button1">Nov</button>
+          <button class="button1">Dec</button>
+        </div>
+        <h3>Years</h3>
+        <div class="years">
+          <button class="button2">2023</button>
+          <button class="button2">2022</button>
+        </div>
+      </details>
+    </section>
+  
+    <!--<section class="pie-chart">
+      <h1>Pie Chart Summary</h1>
+      <div id="container"></div>
+      <div id="blocker"></div>
+    </section>-->
+    <h1 class="pie-header">Breakdown of Expenses</h1>
+    <h3 class="pie-header">(For best results, make sure to log expenses in all categories.)</h3>
+    
+    <!--<button id="displayChart">Display Chart</button>-->
+
+    <section class="alt-chart" id="chartSection">
+    <canvas id="myChart" style="width:100%;max-width:1000px"></canvas>
+    <div id="chartError" style="display:none;">No data to display. Please add your expenses to the appropriate pages.</div>
+    </section>
+    
+
+<!--<section>
+  <svg width="400" height="400">
+    <circle cx="200" cy="200" r="150" fill="white" stroke="black" stroke-width="2" />
+     Define the data for the pie chart as an array of values 
+    <script>
+      var data = [20, 30, 50];
+    </script>
+     Define the colors for each slice of the pie chart 
+    <style>
+      .slice1 {fill: #FFC107;}
+      .slice2 {fill: #03A9F4;}
+      .slice3 {fill: #4CAF50;}
+    </style>
+     Define the paths for each slice of the pie chart, and add the percentage labels 
+    <g transform="translate(200,200)">
+      <path class="slice1" d="M0,-150 A150,150 0 0,1 101.96152422706632,-136.73579351805652 L0,0 Z" />
+      <text transform="translate(30,-100)">20%</text>
+      <path class="slice2" d="M101.96152422706632,-136.73579351805652 A150,150 0 0,1 127.18665436209764,119.00201438781922 L0,0 Z" />
+      <text transform="translate(60,50)">30%</text>
+      <path class="slice3" d="M127.18665436209764,119.00201438781922 A150,150 0 1,1 0,-150 L0,0 Z" />
+      <text transform="translate(-40,-120)">50%</text>
+    </g>
+  </svg>
+  </section>-->
+
+    <!--Start of last section-->
+    <section class="footer">
+      <h4>About the Team</h4>
+      <p>
+        In 2023 the CFL team built the web app to facilitate business students
+        with their finances. The team is comprised of <br />
+        five members: Andrés Choque, Jonathan Wilson, Bailey Warren, Noha
+        Ngassaki, Michael Donoho.
+      </p>
+      <div class="icons">
+        <i class="fa-brands fa-facebook" onclick="showFBpage()"></i>
+        <i class="fa-brands fa-twitter" onclick="showTWpage()"></i>
+        <i class="fa-brands fa-instagram" onclick="showIGpage()"></i>
+        <i class="fa-brands fa-linkedin" onclick="showLIpage()"></i>
+      </div>
+      <p>Made with <i class="fa-solid fa-heart"></i> by CFL Team</p>
+    </section>
+    <!--End of last section-->
+  </body>
+</html>
