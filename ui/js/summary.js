@@ -1,44 +1,44 @@
 "use strict";
 
 
-/**** Calendar Button1 & 2 highlighting functionality ****/
-let button1 = document.getElementsByClassName("button1");
-let button2 = document.getElementsByClassName("button2");
+/**** Filter Button1 & 2 highlighting functionality ****/
+// let button1 = document.getElementsByClassName("button1");
+// let button2 = document.getElementsByClassName("button2");
 
 
-highlightButton(button1);
-highlightButton(button2);
+// highlightButton(button1);
+// highlightButton(button2);
 
-function highlightButton(button)
-{
+// function highlightButton(button)
+// {
     
-    for (let i = 0; i < button.length; i++)
-    {
-        button[0].style.background = 'rgba(4, 59, 92, 0.7)';
-        button[0].style.color = '#fff';
+//     for (let i = 0; i < button.length; i++)
+//     {
+//         button[0].style.background = 'rgba(4, 59, 92, 0.7)';
+//         button[0].style.color = '#fff';
 
-        button[i].addEventListener("click", function (){
+//         button[i].addEventListener("click", function (){
             
-            if (button[i].style.background == 'rgba(4, 59, 92, 0.7)')
-            {
-                button[i].style.background = 'transparent';
-                button[i].style.color = 'black';
-            }else {
-                button[i].style.background = 'rgba(4, 59, 92, 0.7)';
-                button[i].style.color = '#fff';
+//             if (button[i].style.background == 'rgba(4, 59, 92, 0.7)')
+//             {
+//                 button[i].style.background = 'transparent';
+//                 button[i].style.color = 'black';
+//             }else {
+//                 button[i].style.background = 'rgba(4, 59, 92, 0.7)';
+//                 button[i].style.color = '#fff';
 
-            }
+//             }
             
-        });
-    }
-}
+//         });
+//     }
+// }
 
 
 /********** Filter Drop Down **********/
 
-let filters = document.getElementById("details");
+// let filters = document.getElementById("details");
 
-filters.onclick = () => { filters.setAttribute("open"); }
+// filters.onclick = () => { filters.setAttribute("open"); }
 
 
 
