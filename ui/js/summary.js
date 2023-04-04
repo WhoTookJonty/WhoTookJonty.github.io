@@ -276,10 +276,14 @@ window.onload = function updateSession()
     owe_sum[0].textContent = "$" + o_sum.toLocaleString("en-US");
     total_expenses_num.textContent = "$" + (l_sum + g_sum + gr_sum + o_sum).toLocaleString("en-US");
 
-    //Update income value
-    let income_value = sessionStorage.getItem("income_value") || "";
-    income_input.value = "$"+ parseFloat(income_value).toLocaleString('en-US', {'minimumFractionDigits':2,'maximumFractionDigits':2});
-    incomeInput();
+        //Update income value
+        let income_value = sessionStorage.getItem("income_value") || '';
+        if (income_value != '')
+        {
+          income_input.value = "$"+ parseFloat(income_value).toLocaleString('en-US', {'minimumFractionDigits':2,'maximumFractionDigits':2});
+          incomeInput();
+        }
+     
 
     
 
