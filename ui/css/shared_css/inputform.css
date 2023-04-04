@@ -137,11 +137,13 @@ form .button input {
 
     form .user-details .input-box {
         margin-bottom: 15px;
+        width: 80%;
+    }
+    .categoryInput {
         width: 100%;
     }
-
-    form .gender-details .category {
-        width: 100%;
+    .button {
+        width: 80%;
     }
 
     .container form .user-details {

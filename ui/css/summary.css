@@ -14,6 +14,10 @@ html {
   position: relative;
 }
 
+nav .fa-solid {
+  display: none;
+}
+
 /* Text Styling */
 
 #summary_head{
@@ -457,10 +461,10 @@ h3 {
 }
 
 /* Allows columns to fit within an iphone view */
-@media(max-width: 700px)
+@media screen and (max-width: 700px)
 {
-    .row {
-        flex-direction: column;
+    div, .chartError {
+      margin: auto;
     }
 }
 

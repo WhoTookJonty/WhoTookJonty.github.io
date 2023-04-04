@@ -29,7 +29,8 @@
     <section class="header">
       <nav>
         <a href="summary.html"><img src="" /></a>
-        <div class="nav-links">
+        <div class="nav-links" id="navLinks">
+          <i class="fa-solid fa-square-xmark" onclick="hideMenu()"></i>
           <ul>
             <li><a href="../html/summary.html" id="homeNav">SUMMARY</a></li>
             <li><a href="../html/live.html" id="liveNav">LIVE</a></li>
@@ -39,6 +40,7 @@
             <li><a href="../html/about.html" id="homeNav">ABOUT</a></li>
           </ul>
         </div>
+        <i class="fa-solid fa-bars" onclick="showMenu()"></i>
       </nav>
 
 
@@ -53,7 +55,9 @@
               <span class="progress-value" id="progress_value">$0</span>
             </div>
             <span class="income-text">Income Margin</span>
+
             <input type="text" id="income_input" placeholder="Enter monthly income">
+            
             <div id="after_tax">
               <h1 id="after_tax_h1">Income After Tax: <span id="after_tax_num"></span> </h1>
             </div>

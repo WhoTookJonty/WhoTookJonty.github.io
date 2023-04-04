@@ -1,7 +1,16 @@
 "use strict";
 
+var navLinks = document.getElementById("navLinks");
 
-/**** Filter Button1 & 2 highlighting functionality ****/
+function showMenu() {
+    navLinks.style.right = "0";
+}
+
+function hideMenu() {
+    navLinks.style.right = "-200px";
+}
+
+/**** Filters Button1 & 2 highlighting functionality ****/
 // let button1 = document.getElementsByClassName("button1");
 // let button2 = document.getElementsByClassName("button2");
 
@@ -34,7 +43,7 @@
 // }
 
 
-/********** Filter Drop Down **********/
+// /********** Filter Drop Down **********/
 
 // let filters = document.getElementById("details");
 
@@ -63,27 +72,6 @@ give_bar.onclick = () => { window.location.href = "give.html#form-header"; }
 grow_bar.onclick = () => { window.location.href = "grow.html#form-header"; }
 owe_bar.onclick = () => { window.location.href = "owe.html#form-header"; }
 
-//document.getElementById('displayChart').addEventListener('click', function() {
-    //myChart.canvas.style.display = 'block';
-//});
-
-/* Method for updating the sum of tables:
-
-//let l_sum = headerSum(live_table, live_sum);
-        etc...
-
-function headerSum(table, container_sum)
-{
-    let sum = 0;
-    for (let i = 1; i < table.rows.length; i++)
-    {
-        sum += parseInt(table.rows[i].cells[2].innerText);
-    }
-    container_sum[0].textContent = "$" + sum.toLocaleString("en-US");
-    return sum;
-}
-
-*/
 
 /************** Progress Bar ***************/
 
@@ -106,50 +94,72 @@ let total_expenses_num = document.getElementById("total_expenses_num");
 //add $ sign to beginning of input
 income_input.addEventListener("focus", function()
 {
-    if(income_input.value.charAt(0) != '$'){
+    if(income_input.value.charAt(0) == ''){
         income_input.value = '$';
     }   
     
 });
 
+let regX = "^[+-]?[0-9]{1,3}(?:,?[0-9]{3})*(?:\.[0-9]{0,2})?$"; // match currency input.
+let income_value = 0;
+
 /*** User presses Enter key or tabs out of income input ***/
 let enterPressed = false; //prevents progress bar animation from executing twice when the Blur function is called in incomeInput()
+
 income_input.addEventListener("keypress", function(event)
 {
-    if(event.key == "Enter" && parseInt(income_input.value.replace(/[^0-9.]/g, '')) > -1)
-    {
-        event.preventDefault;
-        let strg = '$' + parseInt(income_input.value.replace(/[^0-9.]/g, '')).toLocaleString('en-US');
-        income_input.value = strg;
-        sessionStorage.setItem("income_value", strg);
+  income_input.setCustomValidity("");
+  income_input.reportValidity();
 
-        enterPressed = true;
-        incomeInput();
-    }
+    if(event.key == "Enter") {
+
+      income_value = income_input.value.replaceAll('$', '').replaceAll(',', '');
+      console.log(1000.00.toLocaleString('en-US', {'minimumFractionDigits':2,'maximumFractionDigits':2}));
+
+      if(income_value.match(regX) && income_value >= 0)
+      {
+          event.preventDefault;
+          console.log(parseFloat(income_value).toLocaleString('en-US', {'minimumFractionDigits':2,'maximumFractionDigits':2}));
+          income_input.value = "$" + parseFloat(income_value).toLocaleString('en-US', {'minimumFractionDigits':2,'maximumFractionDigits':2});
+          sessionStorage.setItem("income_value", income_value);
+
+          enterPressed = true;
+          
+          incomeInput();
+      }else{
+        income_input.setCustomValidity("Enter a valid currency format");
+        income_input.reportValidity();
+      }
+
+  }
 });
-
-//        /[$]|[,]/g
 
 income_input.addEventListener("focusout", function()
 {
-        if(parseInt(income_input.value.replace(/[^0-9.]/g, '')) > -1 && enterPressed == false)
-        {
-            let strg = '$' + parseInt(income_input.value.replace(/[^0-9.]/g, '')).toLocaleString('en-US');
-            income_input.value = strg;
-            sessionStorage.setItem("income_value", strg);
+  income_value = income_input.value.replaceAll('$', '').replaceAll(',', '');
 
-            incomeInput();
-        }
+  if(income_value.match(regX) && income_value >= 0)
+  {
+      income_input.value = "$" + parseFloat(income_value).toLocaleString('en-US', {'minimumFractionDigits':2,'maximumFractionDigits':2});
+      sessionStorage.setItem("income_value", income_value);
+
+      enterPressed = true;
+      
+      incomeInput();
+  }else{
+    income_input.setCustomValidity("Enter a valid currency format");
+    income_input.reportValidity();
+  }
         
 });
 
 //Load income value
 function incomeInput()
 {
-    let income_int = income_input.value.replace(/[^0-9.]/g, '');
+    income_value = income_input.value.replaceAll(',', '').replaceAll('$', '');
 
-    taxValue = calcTax(income_int);
-    i_sum = income_int - (income_int * taxValue);
+    taxValue = calcTax(income_value);
+    i_sum = income_value - (income_value * taxValue);
 
     document.querySelectorAll(':focus').forEach(el => el.blur()); /*focus out of input field on enter*/
     animateBar(i_sum, g_sum, l_sum, gr_sum, o_sum);
@@ -240,8 +250,6 @@ function animateBar(i_sum, l_sum, g_sum, gr_sum, o_sum)
             progressValue.textContent = '$'+ marginCount.toLocaleString("en-US");
             circularProgress.style.background = `conic-gradient(darkgoldenrod ${progressStart * 3.6}deg, #ededed 0deg)`; /*multiply by 3.6 as 1% of 360 = 3.6 --> dont change*/
 
-        
-        
             if(progressStart >= progressEnd)
             {
                 clearInterval(progress);
@@ -269,8 +277,8 @@ window.onload = function updateSession()
     total_expenses_num.textContent = "$" + (l_sum + g_sum + gr_sum + o_sum).toLocaleString("en-US");
 
     //Update income value
-    let income_value = sessionStorage.getItem("income_value");
-    income_input.value = income_value;
+    let income_value = sessionStorage.getItem("income_value") || "";
+    income_input.value = "$"+ parseFloat(income_value).toLocaleString('en-US', {'minimumFractionDigits':2,'maximumFractionDigits':2});
     incomeInput();
 
     
@@ -282,8 +290,6 @@ window.onload = function updateSession()
     yValues[3] = o_sum || 0;
 
     expenseTotal = l_sum + g_sum + gr_sum + o_sum;
-
-    myChart.update();
 }
 
 /* Progress Bar Expenses and After Tax summations */

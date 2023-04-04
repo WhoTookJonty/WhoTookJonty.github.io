@@ -26,5 +26,5 @@ links.forEach(link => {
 })
 
 function redirectpage() {
-    window.location.href = "html/summary.html";
+    window.location.href = "../UI/html/summary.html";
 }
